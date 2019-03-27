@@ -1,6 +1,6 @@
 <template>
-    <div>app首页
-        <router-link :to="{name:'Member_index'}"><Button>会员中心</Button></router-link>
+    <div class="pages-background" style="background: antiquewhite;">app首页
+        <router-link :to="{name:'Member_index'}"><van-button type="primary">会员中心</van-button></router-link>
     </div>
 </template>
 

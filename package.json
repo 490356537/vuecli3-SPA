@@ -12,6 +12,7 @@
     "iview": "^3.0.1",
     "lib-flexible": "^0.3.2",
     "postcss-px2rem": "^0.3.0",
+    "vant": "^1.6.11",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
