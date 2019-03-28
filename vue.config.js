@@ -13,6 +13,8 @@ for (let item of config.PROXYSAPI) {
     });
 }
 module.exports = {
+    //生产环境是否生成map文件
+    //productionSourceMap: false,
     runtimeCompiler: true,
     //runtimeCompiler: true,
     publicPath: "./", // 配置基本url

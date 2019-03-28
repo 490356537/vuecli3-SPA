@@ -3,11 +3,12 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 /*import './plugins/iview.js'*/
-
-import Vant from 'vant';
 import 'vant/lib/index.css';
 
+import Vant from 'vant';
 Vue.use(Vant);
+import { Button } from 'vant'
+Vue.use( Button);
 
 import 'lib-flexible'
 import '@/assets/css/style.less'
