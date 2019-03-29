@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <transition :name="transition_name">
+        <transition :duration="transition_duration" :name="transition_name">
             <router-view/>
         </transition>
     </div>
@@ -11,43 +11,50 @@
         name: 'app',
         computed: {
             transition_name() {
-                return 'vux-pop-' + this.$store.state.transition_name;
+                return 'app-' + this.$store.state.transition_params.name;
+            },
+            transition_duration() {
+                return this.$store.state.transition_params.duration;
             },
         }
     }
 </script>
 
-<style>
+<style scoped>
     #app {
         height: 100%;
         overflow: auto;
     }
 
-    .vux-pop-out-enter-active,
-    .vux-pop-out-leave-active,
-    .vux-pop-in-enter-active,
-    .vux-pop-in-leave-active {
+    .app-out-enter-active,
+    .app-out-leave-active,
+    .app-in-enter-active,
+    .app-in-leave-active {
         will-change: transform;
         transition: all 200ms;
+        width: 100%;
         height: 100%;
         top: 0;
+        left:0;
         position: absolute;
         backface-visibility: hidden;
         perspective: 1000;
     }
 
-    .vux-pop-out-enter {
+   /* .app-out-enter {
         transform: translate3d(-100%, 0, 0);
-    }
+    }*/
 
-    .vux-pop-out-leave-active {
+    .app-out-leave-active {
+        position: absolute;
+        z-index: 100;
         transform: translate3d(100%, 0, 0);
     }
-    .vux-pop-in-enter {
+
+  .app-in-enter {
         transform: translate3d(100%, 0, 0);
     }
-
-    .vux-pop-in-leave-active {
+   /*   .app-in-leave-active {
         transform: translate3d(-100%, 0, 0);
-    }
+    }*/
 </style>

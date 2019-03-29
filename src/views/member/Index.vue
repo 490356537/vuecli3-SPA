@@ -1,14 +1,18 @@
 <template>
     <div class="pages-background" style="background: #fec368;">
         <div>会员中心</div>
+        <router-link :to="{name:'Home_Page01'}"><van-button>跳到page页</van-button></router-link>
         <van-button type="primary" @click="$router.go(-1)">返回</van-button>
         <p class="p-tips">啥情况啊？</p>
         <Vuexdemo ref="vuexdemo" @click="update_vuex">给组件插内容</Vuexdemo>
         <van-button @click="transfer_demo" type="primary">父组件内调子组件事件,改变值</van-button>
+
+        <tabbar :active=3></tabbar>
     </div>
 </template>
 
 <script>
+    import Tabbar from '@/components/public/Tabbar'
     import Vuexdemo from '@/components/public/Vuexdemo'
     import {post_demo} from "@/api/menber/info.js";
 
@@ -17,7 +21,7 @@
         data() {
             return {}
         },
-        components: {Vuexdemo},
+        components: {Vuexdemo,Tabbar},
         created() {
             const params = {};
             post_demo(params).then(res => {

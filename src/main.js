@@ -6,9 +6,11 @@ import store from "./store";
 import 'vant/lib/index.css';
 
 import Vant from 'vant';
+
 Vue.use(Vant);
-import { Button } from 'vant'
-Vue.use( Button);
+import {Button} from 'vant'
+
+Vue.use(Button);
 
 import 'lib-flexible'
 import '@/assets/css/style.less'
@@ -16,12 +18,17 @@ import '@/assets/css/style.less'
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount("#app");
 
 router.beforeEach(function (to, from, next) {
-  store.commit('inout_router', to.name==from.meta.out?'out':'in');
-  next();
+    const msg = {
+        to_name: to.name,
+        from_name: from.name
+    }
+    store.commit('router_log',msg);
+    //store.commit('inout_router', to.name == from.meta.out ? 'out' : 'in');
+    next();
 })
