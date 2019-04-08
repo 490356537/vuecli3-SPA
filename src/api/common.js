@@ -42,6 +42,8 @@ export function common_post(axios_confgin) {
         form_data.append(i, axios_confgin.params[i]);
     }
 
+console.log(config.API_URL+ axios_confgin.url);
+
     return axios.post(config.API_URL + axios_confgin.url, form_data).then(res => {
         return Promise.resolve(res.data);
     });

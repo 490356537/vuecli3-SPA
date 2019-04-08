@@ -7,16 +7,17 @@ for (let item of config.PROXYSAPI) {
             changeOrigin: false,//是否跨域
             ws: true, // proxy websockets
             pathRewrite: {
-                [`^${item.module_name}`]: [item.module_name]//需要rewrite的
+                [`^${item.module_name}`]: '/'//需要rewrite的
             }
         }
     });
 }
+
 module.exports = {
     //生产环境是否生成map文件
     //productionSourceMap: false,
     runtimeCompiler: true,
-    //runtimeCompiler: true,
+
     publicPath: "./", // 配置基本url
     devServer: {
         //disableHostCheck: true,
